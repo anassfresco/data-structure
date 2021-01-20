@@ -24,6 +24,7 @@ class binary_tree:
                 self.insert_recusion(data, node.right_node)
             else:
                 node.right_node = new_node
+
     def maxNode(self):
         if self.tree is None:
             return
@@ -70,48 +71,17 @@ class binary_tree:
             self.traverse_prerecusion(node.left_node)
         elif  node.right_node:
             self.traverse_prerecusion(node.right_node)
-    # def removeNode(self,data,node):
-    #     if not node:
-    #         return node
-    #     if data<node.data:
-    #         node.left_node=self.removeNode(data,node.left_node)
-    #     elif data>node.data:
-    #         node.right_node=self.removeNode(data,node.right_node)
-    #     else:
-    #         if not node.right_node and not node.left_node:
-    #             del node
-    #             return None
-    #         if not node.left_node:
-    #             node1=node.right_node
-    #             del node
-    #             return node1
-    #         elif not node.right_node:
-    #             node2=node.left_node
-    #             del node
-    #             return node2
-    #         node_with_two_node=self.predecessor(node.left_node)
-    #         node.data=node_with_two_node.data
-    #         node.left_node=self.removeNode(node_with_two_node.data,node.left_node)
-    #     return node
-    # def predecessor(self,node):
-    #     if node.right_node:
-    #         return self.predecessor(node.right_node)
-    #     return node
-    #
-    #
-    #
-    #
-    #
-    #
-    #
-    #
-    #
-    #
-    #
-    #
-    # def remove(self,data):
-    #     if self.tree:
-    #         self.tree=self.removeNode(data,self.tree)
+
+
+
+
+
+
+
+
+
+
+
 
 
     def remove_item(self, data):
@@ -154,7 +124,7 @@ class binary_tree:
         # case data has right child only
         elif node.right_node is not None and node.left_node is None:
             if data > parent.data:
-                parent.right_node = node.left_node
+                parent.right_node = node.right_node
             else:
                 parent.left_node = node.left_node
             return True
@@ -178,6 +148,9 @@ class binary_tree:
                 delparent.left_node = None
             else:
                 delparent.right_node = None
+    def show(self):
+        print(self.tree.data)
+
 
 
 binary=binary_tree()
@@ -187,6 +160,7 @@ binary.insert(44)
 binary.insert(64)
 binary.insert(94)
 binary.insert(32)
-binary.remove_item(76)
+binary.remove_item(44)
+
 
 print(binary.traverse())
