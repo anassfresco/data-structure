@@ -99,7 +99,7 @@ node3.adjacenciesList.append(edge15)
 node4.adjacenciesList.append(edge16)
 
 
-vertexList = (node1,node2,node3, node4, node5, node6, node7, node8)
+
 
 algorithm = Algorithm()
 algorithm.calculateShortestPath(node1)
