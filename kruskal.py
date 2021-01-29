@@ -19,8 +19,7 @@ class Edge(object):
 		self.startVertex = startVertex
 		self.targetVertex = targetVertex
 		
-	def __cmp__(self, otherEdge):
-		return self.cmp(self.weight, otherEdge.weight)
+	
 		
 	def __lt__(self, other):
 		selfPriority = self.weight
@@ -108,6 +107,7 @@ vertex1 = Vertex("a")
 vertex2 = Vertex("b")
 vertex3 = Vertex("c")
 vertex4 = Vertex("d")
+vertex5 = Vertex("e")
 vertex6 = Vertex("f")
 vertex7 = Vertex("g")
 
