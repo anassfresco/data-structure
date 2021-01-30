@@ -5,7 +5,7 @@ class Node(object):
 		self.name = name
 		self.adjacencyList = []
 		self.visited = False
-		self.predecessor = None
+	
 		
 class BreadthFirstSearch(object):
 
