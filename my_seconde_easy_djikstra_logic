@@ -1,0 +1,76 @@
+import sys
+
+
+class node:
+    def __init__(self,data):
+        self.data=data
+        self.vertex=[]
+        self.pradatacor=None
+        self.valeur=sys.maxsize
+        self.visited=None
+    def __lt__(self, other):
+
+        return (self.valeur<other.valeur)
+
+class vertex:
+    def __init__(self,weight,node_end):
+        self.weight=weight
+        self.node_end=node_end
+
+class djikstra:
+    def djikstra_work(self,node):
+        q=set()
+        q.add(node)
+        node.valeur=0
+        node.visited=None
+        while len(q)!=0:
+            chosen_nood=min(q)
+            chosen_nood.visited=True
+            for i in chosen_nood.vertex:
+                end_node = i.node_end
+                if end_node.visited is None:
+                    
+                    if (end_node.valeur>chosen_nood.valeur+i.weight):
+                        end_node.valeur=chosen_nood.valeur+i.weight
+                        end_node.pradatacor=chosen_nood
+                        q.add(end_node)
+            q.remove(chosen_nood)
+    def show_node(self,node):
+        actual_node=node
+        while actual_node.valeur!=0:
+            print(actual_node.data)
+            actual_node=actual_node.pradatacor
+        print(actual_node.data)
+
+
+
+
+
+
+
+node1 = node("x1")
+node2 = node("x2")
+node3 = node("x3")
+node4 = node("x4")
+node5 = node("x5")
+
+wight1=vertex(3,node2)
+wight2=vertex(2,node3)
+wight3=vertex(5,node3)
+wight4=vertex(2,node4)
+wight5=vertex(3,node4)
+wight6=vertex(5,node5)
+wight7=vertex(7,node5)
+
+node1.vertex.append(wight1)
+node1.vertex.append(wight2)
+node2.vertex.append(wight4)
+node2.vertex.append(wight3)
+node3.vertex.append(wight5)
+node3.vertex.append(wight7)
+node4.vertex.append(wight6)
+
+djikstra1=djikstra()
+djikstra1.djikstra_work(node1)
+djikstra1.show_node(node5)
+
